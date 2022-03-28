@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="shortcut icon" href="./assets/img/png/favicon.ico" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="./assets/style/ether.css">
+    <title>Ether-Demons</title>
+</head>
+
+<body class="bg-color-black">
+    <div class="adress-box">
+        <h2>Account: <span class="showAccount"></span></h2>
+    </div>
+    <div class="dialog-box">
+        <div class="cost-innerbox">
+            <!-- <a href="#" class="close">X</a> -->
+            <h1 class="">ETHER DEMONS Pre-Sale</h1>
+            <div class="disclaimer">
+                Type in the amount of <strong>TICKETS</strong> you want:<br>
+                (0.2 ETH per Ticket)
+            </div>
+            <input id="input-amount" class="input" type="number" min="0" step="1" placeholder="0">
+            <!-- <div class="disclaimer">
+                Wallet Address to transfer:
+            </div>
+            <input id="input-address" class="input" type="text" placeholder=""> -->
+            <div class="cost-outerbox">
+                Your Tickets will cost: 
+                <div id="cost-box">0</div>
+                <b>You can win up to 10 Mekas. <br>Lost Tickets are refunded after the Raffle.</b>
+            </div>
+            <button id="mint-btn">MINT NOW</button>
+        </div>
+    </div>
+    <!-- NAVBAR AND HERO SECTION START -->
+    <section class="hero-bg-img">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-bg-rgb z-1 py-lg-20 py-8">
+            <div class="container">
+                <a class="navbar-brand me-0 me-md-0 " href="#"><img class="w-sm-240 "
+                        src="./assets/img/png/navbar-logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                            fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <li class="nav-item me-4 me-xl-5 ">
+                            <a class="nav-link active px-0 para middle d-inline-block" aria-current="page"
+                                href="#home">Home</a>
+                        </li>
+                        <li class="nav-item me-4 me-xl-5">
+                            <a class="nav-link px-0 para middle d-inline-block" aria-current="page"
+                                href="#about">About</a>
+                        </li>
+                        <li class="nav-item me-4 me-xl-5">
+                            <a class="nav-link px-0 para middle d-inline-block" aria-current="page"
+                                href="#roadmap">Roadmap</a>
+                        </li>
+                        <li class="nav-item me-4 me-xl-5">
+                            <a class="nav-link px-0 para middle d-inline-block" aria-current="page"
+                                href="#team">Team</a>
+                        </li>
+
+                        <li class="nav-item me-4 me-xl-5  mt-2 mt-lg-0">
+                            <button id="connect-wallet" class="common-btn" type="submit">Connect Wallet</button>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-sm-5 pt-xxxxl-70" id="home">
+            <div class="row">
+                <!-- PARTICLE  -->
+                <div class="particle-animate" id="particles-js"></div>
+
+                <div class="col-md-7 col-lg-6 d-flex align-items-center order-1 order-md-0" data-aos="fade-right"
+                    data-aos-duration="2000">
+                    <div class="text-center text-md-start">
+                        <h1 class="main-heading">Release your inner demon our secret</h1>
+                        <!-- <p class="para mb-4 mb-lg-5">Aenean quis lorem malesuada purus viverra pellentesque. Id rhoncus
+                            et ut vitae donec nunc, nam. Velit donec tempor gravida tempus risus aliquam tellus. Mattis amet tristique v</p> -->
+                        <div class="countdown">
+                            <div id="clockdiv">
+                                <div>
+                                    <span class="days"></span>
+                                    <div class="smalltext">Days</div>
+                                </div>
+                                <div>
+                                    <span class="hours"></span>
+                                    <div class="smalltext">Hours</div>
+                                </div>
+                                <div>
+                                    <span class="minutes"></span>
+                                    <div class="smalltext">Minutes</div>
+                                </div>
+                                <div>
+                                    <span class="seconds"></span>
+                                    <div class="smalltext">Seconds</div>
+                                </div>
+                            </div>
+                            <div class="tickets-box">
+                                <div class="tickets">
+                                    Presale Mekas left: <b id="ticket-count">312</b> / 888
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-3 mint-div"> <a href="#" id="mint-btn0" class="common-btn text-decoration-none">MINT NOW</a></div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-6 mb-3 mb-md-0" data-aos="fade-left" data-aos-duration="2000">
+                    <div><img class="hero-vampire-img" src="./assets/img/png/hero-img.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NAVBAR AND HERO SECTION END -->
+
+    <!-- ABOUT-US SECTION START -->
+    <section class="about-us-bg-img" id="about">
+        <div class="container  ">
+            <div class="row justify-content-between">
+
+                <div class=" col-md-5 col-lg-6 order-1 order-md-0" data-aos="fade-right" data-aos-duration="2000">
+                    <div class=" "><img class="w-100  w-h-490" src="./assets/img/png/Abouts-us.png" alt=""></div>
+                </div>
+                <div class=" col-md-7  col-lg-6 pe-xxl-0  mb-4 mb-md-0 pb-2 pb-md-0 d-flex align-items-center"
+                    data-aos="fade-left" data-aos-duration="2000">
+                    <div class="text-center text-md-start ps-sm-0 ps-md-4 ps-lg-0">
+                        <h1 class="heading">ABOUT US</h1>
+                        <p class="para mb-0  ">Aenean quis lorem malesuada purus viverra pellentesque. Id rhoncus
+                            et ut vitae donec nunc, nam. Velit donec tempor gravida tempus risus aliquam tellus. Mattis
+                            amet tristique varius ullamcorper amet sagittis faucibus id justo. Pellentesque lacus,
+                            suscipit libero sodales pellentesque erat. Nisl donec integer libero montes dui amet quis.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT-US SECTION END -->
+
+    <!-- FIRST-SECTION SECTION START -->
+    <section class="first-demo-bg-img">
+        <div class="container  ">
+            <div class="row justify-content-between">
+                <div class=" col-md-7  col-lg-6    mb-4 mb-md-0 pb-2 pb-md-0  d-flex align-items-center   "
+                    data-aos="fade-right" data-aos-duration="2000">
+                    <div class="text-center text-md-start   ">
+                        <h1 class="heading">FIRST DEMON-CON</h1>
+                        <p class="para mb-0  px-2 px-md-0">The most innovative and disruptive event of the Century. The
+                            only form of
+                            entry is by blockchain verification of your Ether Demon NFT upon arrival at the event. These
+                            events will be hosted in world-cities like London, Amsterdam, Stockholm and New York. The
+                            first event will be hosted Somewhere Q1-2022.
+                        </p>
+
+                    </div>
+                </div>
+                <div class=" col-10 col-md-5 col-lg-6  mx-auto" data-aos="fade-left" data-aos-duration="2000">
+                    <div class=" d-flex justify-content-end"><img class="w-100 w-h-396  "
+                            src="./assets/img/png/first-demo-img.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- FIRST-SECTION SECTION END -->
+    <!-- roadmap section -->
+    <section class="roadmap-bg-img" id="roadmap">
+        <div class=" container py-3 ">
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <h2 class="text-center heading pt-4 ">ROADMAP</h2>
+                <p class="para mw-600 text-center mx-auto lh-180   mb-lg-5"> Aenean quis lorem malesuada purus viverra
+                    pellentesque.
+                    Id rhoncus et ut vitae donec nunc, nam. </p>
+            </div>
+            <div class="row mt-5 pt-xl-5">
+                <div class="col-2 ms-md-auto text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+                <div class="col-md-5 col-10 mb-lg-5" data-aos="fade-left" data-aos-duration="2000">
+                    <p class="para lh-180 pb-2 pb-lg-5"> $100.000 has been raised by the community in a dev wallet to
+                        support
+                        the
+                        rise of the project. All those who have contributed have been whitelisted and are pre-approved
+                        for the presale.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-10 mb-lg-5 order-md-0 order-1" data-aos="fade-right" data-aos-duration="2000">
+                    <p class="para lh-180 pb-2 pb-lg-5 text-md-end">6666 Ether demons are brought to life, waiting to be
+                        sent
+                        to their new servants.
+
+                    </p>
+                </div>
+                <div class="col-2 text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+
+            </div>
+            <div class="row  ">
+                <div class="col-2 ms-md-auto text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+                <div class="col-md-5 col-10 mb-lg-5" data-aos="fade-left" data-aos-duration="2000">
+                    <p class="para lh-180 pb-2 pb-lg-5">The casino in the MetaVerse is under construction, all ether
+                        demon
+                        holders will be shareholders of this casino and entitled to a huge % of the profits.
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-10 mb-lg-5 order-md-0 order-1">
+                    <p class="para lh-180 pb-2 pb-lg-5 text-md-end" data-aos="fade-right" data-aos-duration="2000">First
+                        DemonCon event, your demon will be your entry
+                        ticket. This will be hosted shortly after we have launched the MetaVerse casino (eta. Q1 '22)
+
+
+                    </p>
+                </div>
+                <div class="col-2 text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+
+            </div>
+            <div class="row  ">
+                <div class="col-2 ms-md-auto text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+                <div class="col-md-5 col-10 mb-lg-5">
+                    <p class="para lh-180 pb-2 pb-lg-5" data-aos="fade-left" data-aos-duration="2000">First shark-tank
+                        event is hosted. Members will pitch their
+                        projects
+                        and ideas to the Ether Demons "overlords" which will invest into their projects with open
+                        wallets!
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-10 mb-lg-5 order-md-0 order-1">
+                    <p class="para lh-180 pb-2 pb-lg-5 text-md-end" data-aos="fade-right" data-aos-duration="2000">The
+                        Casino has officially launched and is now a
+                        stream of
+                        passive income for all of the Ether Demons holders. this is projected to be done Q1 2022.
+
+
+                    </p>
+                </div>
+                <div class="col-2 text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+
+            </div>
+            <div class="row  ">
+                <div class="col-2 ms-md-auto text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+                <div class="col-md-5 col-10 mb-lg-5">
+                    <p class="para lh-180 pb-2 pb-lg-5" data-aos="fade-left" data-aos-duration="2000"> Ether Demons will
+                        have opened a special hotline before Q2 2022
+                        where
+                        members can request luxury items such as luxury watches, sports cars, exclusive hotels etc. to
+                        be arranged for them
+                    </p>
+                </div>
+            </div>
+            <div class="row pb-5">
+                <div class="col-md-5 col-10  order-md-0 order-1">
+                    <p class="para lh-180 pb-2   text-md-end" data-aos="fade-right" data-aos-duration="2000">Every
+                        weekend, the floor price will be swept using a dev
+                        fund,
+                        the NFT's that are bought by us for floor price will be given away in weekly competitions to
+                        other Ether Demons members.
+
+                    </p>
+                </div>
+                <div class="col-2 text-center  white-line ">
+                    <div class="ball mx-auto"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+    <!-- CHART SECTION START  -->
+    <section class="tokemics-bg-img" id="tokenomics">
+        <div class="container ">
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <h1 class="heading  text-center   text-uppercase">Tokenomics</h1>
+                <p class="para mb-5 pb-lg-4 text-center">Iaculis et at venenatis placerat nulla. Scelerisque ac ut nulla
+                    et
+                    placerat<br class="d-none d-md-block">
+                    faucibus. Viverra malesuada.
+                </p>
+            </div>
+            <div class="row   justify-content-center align-items-center">
+                <div class="col-md-6 col-lg-5 col-xxl-4    " data-aos="fade-right" data-aos-duration="2000">
+                    <div id="chart" class="d-flex justify-content-center  align-items-center   "></div>
+                </div>
+                <div class="col-md-4  col-xl-3 col-xxl-4 ms-xxl-5  my-lg-auto my-4 d-flex justify-content-center"
+                    data-aos="fade-left" data-aos-duration="2000">
+                    <div class="m-xxl-auto">
+                        <div class="apexcharts-legends apexcharts-align-center apx-legend-position-right  d-flex flex-row flex-md-column justify-content-center w-100  "
+                            xmlns="http://www.w3.org/1999/xhtml" style="  left: auto; top: 24px; right: 5px;">
+                            <div class="me-3">
+                                <div class="apexcharts-legend-series" rel="1" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="1" data:collapsed="false" style="background: #30E8F4; height: 12px; width: 12px; left:
+                                    0px; top: 0px;
+                                    border-width: 0px; border-color: rgb(255, 255, 255); border-radius:
+                                    3px;"></span><span class="apexcharts-legend-text" rel="1" i="0" para
+                                        data:default-text="Sed%20sem" data:collapsed="false">Team</span></div>
+                                <div class="apexcharts-legend-series" rel="2" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="2" data:collapsed="false" style="background: #FF46E1 !important; color: #6C452A;
+                                    height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="2"
+                                        i="1" data:default-text="Sed%20sem" data:collapsed="false">Development</span>
+                                </div>
+
+
+                                <div class="apexcharts-legend-series" rel="3" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="3" data:collapsed="false" style="background: #00B2FF !important; color: rgb(254, 176,
+                                    25); height: 12px;
+                                    width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255,
+                                    255); border-radius: 12px;"></span><span class="apexcharts-legend-text para"
+                                        rel="3" i="2" data:default-text="Sed%20sem"
+                                        data:collapsed="false">Marketing</span>
+                                </div>
+                                <div class="apexcharts-legend-series" rel="4" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="4" data:collapsed="false" style="background: #FFB218 !important; color: rgb(255, 69,
+                                    96); height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="4"
+                                        i="3" data:default-text="Sed%20sem" data:collapsed="false">Airdrop</span></div>
+                            </div>
+                            <div>
+                                <div class="apexcharts-legend-series" rel="5" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="5" data:collapsed="false" style="background: #00E396 !important; color: rgb(119, 93,
+                                    208); height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="5"
+                                        i="4" data:default-text="Sed%20sem" data:collapsed="false">Private</span></div>
+                                <div class="apexcharts-legend-series" rel="6" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="6" data:collapsed="false" style="background: #FF4560 !important; color: rgb(0, 143,
+                                    251); height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="6"
+                                        i="5" data:default-text="Sed%20sem" data:collapsed="false">Pre-Sale</span>
+                                </div>
+                                <div class="apexcharts-legend-series" rel="7" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="7" data:collapsed="false" style="background: #8B35E2 !important; color: rgb(0, 143,
+                                    251); height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="7"
+                                        i="5" data:default-text="Sed%20sem" data:collapsed="false">Liquidity</span>
+                                </div>
+                                <div class="apexcharts-legend-series" rel="8" seriesname="Sedxsem"
+                                    data:collapsed="false" style="margin: 2px 5px;"><span
+                                        class="apexcharts-legend-marker" rel="8" data:collapsed="false" style="background: #D0DD37 !important; color: rgb(0, 143,
+                                    251); height: 12px; width:
+                                    12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255);
+                                    border-radius: 12px;"></span><span class="apexcharts-legend-text para" rel="8"
+                                        i="5" data:default-text="Sed%20sem" data:collapsed="false">Stake</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </section>
+    <!-- CHART SECTION END  -->
+    <!-- team section start  -->
+    <section class="team-bg-img" id="team">
+        <div class="container py-3 pt-5">
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <h2 class="heading text-center pt-4">TEAM</h2>
+                <p class="para mw-600 text-center mx-auto lh-180    mb-lg-5 mb-md-4 mb-5"> Aenean quis lorem malesuada
+                    purus
+                    viverra
+                    pellentesque. Id rhoncus et ut vitae donec nunc, nam. </p>
+            </div>
+
+            <div class="row pb-5 mb-xl-5 ">
+                <div class="col-md-3 col-6 my-4 my-lg-5 team-card " data-aos="fade-right" data-aos-duration="2000">
+                    <div class=" d-flex flex-column text-center">
+
+                        <div>
+                            <img class="w-100" src="./assets/img/png/team-img-1.png" alt="img">
+                        </div>
+                        <p class="sub-heading mb-0 mt-4 text-center">
+                            JOHN DEO
+                        </p>
+                        <p class=" light-tital mb-2 text-center fw-light">
+                            CEO
+                        </p>
+                        <div class="text-center">
+                            <a class=" me-1 mx-md-2 " href=" https://discord.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/discode.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " target="_blank" href=" https://facebook.com">
+                                <img class="team-social-icon" src="./assets/img/svg/fb-icon.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " href=" https://twitter.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/twitter.svg" alt=""></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 my-4 my-lg-5 team-card" data-aos="fade-right" data-aos-duration="2000">
+                    <div class=" d-flex flex-column text-center">
+
+                        <div>
+                            <img class="w-100" src="./assets/img/png/team-img-2.png" alt="img">
+                        </div>
+                        <p class="sub-heading mb-0 mt-4 text-center">
+                            JOHN DEO
+                        </p>
+                        <p class=" light-tital mb-2 text-center fw-light">
+                            CEO
+                        </p>
+                        <div class="text-center">
+                            <a class=" me-1 mx-md-2 " href=" https://discord.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/discode.svg" alt=""></a> <a
+                                class="m me-1 x-2md-2 " target=" _blank" href=" https://facebook.com"><img
+                                    class="team-social-icon" src="./assets/img/svg/fb-icon.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " href=" https://twitter.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/twitter.svg" alt=""></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 my-4 my-lg-5 team-card" data-aos="fade-left" data-aos-duration="2000">
+                    <div class=" d-flex flex-column text-center">
+
+                        <div>
+                            <img class="w-100" src="./assets/img/png/team-img-3.png" alt="img">
+                        </div>
+                        <p class="sub-heading mb-0 mt-4 text-center">
+                            JOHN DEO
+                        </p>
+                        <p class=" light-tital mb-2 text-center fw-light">
+                            CEO
+                        </p>
+                        <div class="text-center">
+                            <a class=" me-1 mx-md-2 " href=" https://discord.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/discode.svg" alt=""></a> <a
+                                class="m me-1 x-2md-2 " target=" _blank" href=" https://facebook.com"><img
+                                    class="team-social-icon" src="./assets/img/svg/fb-icon.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " href=" https://twitter.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/twitter.svg" alt=""></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 my-4 my-lg-5 team-card" data-aos="fade-left" data-aos-duration="2000">
+                    <div class=" d-flex flex-column text-center">
+
+                        <div>
+                            <img class="w-100" src="./assets/img/png/team-img-4.png" alt="img">
+                        </div>
+                        <p class="sub-heading mb-0 mt-4 text-center">
+                            JOHN DEO
+                        </p>
+                        <p class=" light-tital mb-2 text-center fw-light">
+                            CEO
+                        </p>
+                        <div class="text-center team">
+                            <a class=" me-1 mx-md-2 " href=" https://discord.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/discode.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " href=" https://facebook.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/fb-icon.svg" alt=""></a>
+                            <a class=" me-1 mx-md-2 " href=" https://twitter.com" target="_blank"><img
+                                    class="team-social-icon" src="./assets/img/svg/twitter.svg" alt=""></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- faq section  -->
+    <section class="accodion-section">
+
+        <div class="container py-5 ">
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <h1 class="pt-5 text-center heading">
+                    FAQ
+                </h1>
+                <p class="para mw-600 text-center mx-auto lh-180   ">Aenean quis lorem malesuada purus
+                    viverra pellentesque. Id rhoncus et ut vitae donec nunc, nam. </p>
+            </div>
+            <div class=" pt-2 my-4 my-lg-5 main-accordion mw-830 mx-auto pb-5 " data-aos="zoom-in"
+                data-aos-duration="2000">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item mt-3">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Massa neque malesuada varius in. Amet nulla nullam odio nisi nisi. Ligula.
+
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="para">
+                                    Hac varius turpis sit pulvinar lorem magna velit sit. Dapibus mattis adipiscing
+                                    ornare
+                                    arcu vitae enim. Proin turpis enim egestas sed in accumsan, feugiat neque turpis. .
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item mt-3">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button accordin-heading-bg-color collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Massa neque malesuada varius in. Amet nulla nullam odio nisi nisi. Ligula.
+
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="para">
+                                    Hac varius turpis sit pulvinar lorem magna velit sit. Dapibus mattis adipiscing
+                                    ornare
+                                    arcu vitae enim. Proin turpis enim egestas sed in accumsan, feugiat neque turpis. .
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item  mt-3">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button accordin-heading-bg-color collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Massa neque malesuada varius in. Amet nulla nullam odio nisi nisi. Ligula.
+
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="para">
+                                    Hac varius turpis sit pulvinar lorem magna velit sit. Dapibus mattis adipiscing
+                                    ornare
+                                    arcu vitae enim. Proin turpis enim egestas sed in accumsan, feugiat neque turpis.
+                                    .
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item mt-3">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button accordin-heading-bg-color collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Massa neque malesuada varius in. Amet nulla nullam odio nisi nisi. Ligula.
+
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="para">
+                                    Hac varius turpis sit pulvinar lorem magna velit sit. Dapibus mattis adipiscing
+                                    ornare
+                                    arcu vitae enim. Proin turpis enim egestas sed in accumsan, feugiat neque turpis. .
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+            <div data-aos="zoom-in" data-aos-duration="2000">
+                <div class="text-center mb-4 pb-lg-2 ms-sm-4 ms-md-5"><a href="#"><img class="w-sm-240"
+                            src="./assets/img/png/footer-icon.png" alt=""></div></a>
+                <div class="text-center  media-icons ms-sm-2 ms-md-3">
+                    <a class=" " href="https://discord.com" target="_blank"> <img
+                            src="./assets/img/svg/discord-icon.svg" alt=""></a>
+                    <a class="mx-3" href="https://facebook.com" target="_blank"> <img
+                            src="./assets/img/svg/facebook-icon.svg" alt=""></a>
+                    <a class=" " href="https://twitter.com" target="_blank"> <img
+                            src="./assets/img/svg/twitter-icon.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="white-bottom-line"></div>
+        <div class="py-3  ">
+            <p class="para text-center opacity-07 mb-0">© All Copyrights are reserverd 2021</p>
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <a href="#header" id="scroll" style="display: none;"><span></span></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./assets/js/link.js"></script>
+    <script src="node_modules/@metamask/onboarding/dist/metamask-onboarding.bundle.js" defer></script>
+    <script src="contract.js" defer></script>
+    <script src="assets/js/countdown.js" defer></script>
+    <script>
+        AOS.init({
+            once: true
+        });
+    </script>
+    <script>
+        var options = {
+            series: [5, 10, 35, 5, 5, 15, 5, 20],
+            data: {
+                datasets: [{
+                    label: "# of Votes",
+                    data: [5, 10, 35, 5, 5, 15, 5, 20],
+
+                }, ],
+            },
+
+            chart: {
+                fontWight: '700',
+                size: '100%',
+                width: '100%',
+                type: 'donut',
+                backgroundColor: [
+                    // "#FF9558",
+                    // "#FFF48E",
+                    // "#DF8D5E",
+                    // "#FFDD8C",
+                    // "#FFC094",
+                    // "#E8AF26",
+                ],
+                dropShadow: {
+                    enabled: true,
+                    color: '#fff',
+                    top: -1,
+                    left: 3,
+                    blur: 3,
+                    opacity: 0.1
+                },
+                responsive: [{
+                        breakpoint: 992,
+                        settings: {
+                            width: 361,
+                        }
+                    },
+                    {
+                        breakpoint: 575,
+                        settings: {
+                            width: 400,
+                        }
+                    },
+                    {
+                        breakpoint: 375,
+                        settings: {
+                            width: 320,
+                        }
+                    }
+                ]
+            },
+            stroke: {
+                width: 0,
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: false,
+                            total: {
+                                showAlways: false,
+                                show: false,
+                                color: '#fff',
+                            }
+                        }
+                    }
+                }
+            },
+            labels: ["Team", "Development", "Marketing", "Airdrop",
+                "Private",
+                "Pre-Sale",
+                "Liquidity",
+                "Stake",
+            ],
+
+            dataLabels: {
+                dropShadow: {
+                    blur: 1,
+                    opacity: 0.8
+                },
+                style: {
+                    // colors: ['#fff']
+
+                }
+            },
+
+            states: {
+                hover: {
+                    filter: 'none',
+                }
+            },
+            theme: {
+                palette: 'palette8',
+                style: {
+                    backgroundColor: [
+                        "#FF46E1",
+                        "#00E396",
+                        "#FF4560",
+                        "#FFB218",
+                        "#00B2FF",
+                        "#8B35E2",
+                        "#30E9F4",
+                        "#D0DD37",
+                    ],
+                }
+            },
+
+            responsive: [{
+                breakpoint: 576,
+                options: {
+                    chart: {
+                        width: 380
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 380
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
